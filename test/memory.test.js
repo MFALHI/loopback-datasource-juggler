@@ -289,18 +289,18 @@ describe('Memory connector', function() {
     });
 
     it('should successfully extract 2 users using implied and & and',
-      function(done) {
-        User.find({
-          where: {
-            name: 'John Lennon',
-            and: [{ role: 'lead' }, { vip: true }],
-          },
-        }, function(err, users) {
-          should(users.length).be.equal(1);
-          should(users[0].name).be.equal('John Lennon');
-          done();
-        });
+    function(done) {
+      User.find({
+        where: {
+          name: 'John Lennon',
+          and: [{ role: 'lead' }, { vip: true }],
+        },
+      }, function(err, users) {
+        should(users.length).be.equal(1);
+        should(users[0].name).be.equal('John Lennon');
+        done();
       });
+    });
 
     it('should successfully extract 2 users using date range', function(done) {
       User.find({ where: { birthday: { between:
